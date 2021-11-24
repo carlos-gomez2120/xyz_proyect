@@ -1,0 +1,37 @@
+{% extends 'index-admin.html' %}
+
+{% block conten %}
+    <div class="row ">
+        <div class="col" id="title" style="padding-top: 3%">
+            <h3 id="font">Product List</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-11">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Provider</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Bar Code</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td>{{ product.fk_id_product.id_product }}</td>
+                        <td>{{ product.fk_id_product.product_name }}</td>
+                        <td>{{ product.fk_id_product.fk_id_product_type.product_type_name }}</td>
+                        <td>{{ product.fk_id_provider.name }}</td>
+                        <td>{{ product.stock }}</td>
+                        <td>{{ product.bar_code }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

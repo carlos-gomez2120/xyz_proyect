@@ -1,0 +1,51 @@
+{% extends 'index-cajero.html' %}
+{% block nav %}
+    <div class="row" xmlns="http://www.w3.org/1999/html">
+        <div class="col">
+            </nav>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="">
+                        <span class="iconify" data-icon="healthicons:market-stall" style="color: #ffa62b;"></span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <a href="{% url 'logout' %}">
+                        <img src="https://images.unsplash.com/photo-1595516007576-3832e048c30c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
+                             class="img-thumbnail" alt="">
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </div>
+{% endblock %}
+{% block conten %}
+    <div class="row row-cols-1 row-cols-md-2 g-4" style="margin-top: 5%;padding-left: 10%;">
+        <div class="col">
+            <a href="{% url 'index cajero' %}?user_name={{ user.username }}">
+                <div class="card text-white" id="img-cajero">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80
+                " class="card-img" id="img-caj" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title" id="font">CASHIER</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col">
+            <a href="{% url 'index admin' %}?user_name={{ user.username }}">
+                <div class="card text-white" id="img-cajero">
+                    <img src="https://images.unsplash.com/photo-1556741533-f6acd6474059?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
+                         class="card-img" id="img-caj" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title" id="font">ADMIN</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock %}

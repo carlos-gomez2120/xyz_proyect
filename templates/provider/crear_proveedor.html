@@ -1,0 +1,55 @@
+{% extends 'index-admin.html' %}
+
+{% block conten %}
+<form method="post" action="/provider/create/">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col" id="title">
+            <h3 id="font">Provider Creation Form</h3>
+        </div>
+    </div>
+    <div class="row justify-content-evenly">
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" placeholder="Example Porvider" id="name" name="name">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="inputAddress" class="form-label">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="address">
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-evenly">
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="Number" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                       placeholder="+57 300696969" name="phone">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="basic-url" class="form-label">URL</label>
+                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+                       placeholder="https://example.com/provider/" name="url">
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="mb-3">
+                <label for="nit" class="form-label">NIT</label>
+                <input type="text" class="form-control" id="nit" placeholder="123456" name="nit">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" id="element-end">
+            <button type="submit" class="btn" id="btn-form">Submit</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends 'index-admin.html' %}
+
+{% block conten %}
+    <form action="/product/create_type/" method="post" id="createTypeProduct">
+        {% csrf_token %}
+        <div class="row ">
+            <div class="col" id="title">
+                <h3 id="font">Product Type Creation Form</h3>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Product Type Name</label>
+                    <input type="text" class="form-control" placeholder="Paquetes" name="nameTypeProduct">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" id="element-end">
+                <button type="submit" class="btn" id="btn-form">Submit</button>
+            </div>
+        </div>
+    </form>
+
+    <form action="/product/create/" method="post" id="createProduct">
+        {% csrf_token %}
+        <div class="row ">
+            <div class="col" id="title">
+                <h3 id="font">Product Creation Form</h3>
+            </div>
+        </div>
+
+        <div class="row justify-content-evenly">
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Name</label>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                           placeholder="Coca-cola" name="nameProduct">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label class="form-label">Product Type</label>
+                    <select class="form-select" aria-label="Default select example" name="productType">
+                        <option selected>Open this select menu</option>
+                        {% for productType in productsTypes %}
+                            <option value="{{ productType.id_product_type }}">{{ productType.product_type_name }}
+                            </option>
+                        {% endfor %}
+
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-evenly">
+            <div class="col-4">
+                <div class="mb-3">
+                    <label class="form-label">Bar Code</label>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                           placeholder="7002398374362" name="barCode">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label class="form-label">Stock</label>
+                    <input type="text" class="form-control" aria-label="Sizing example input" placeholder="10"
+                           name="stock">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-evenly">
+            <div class="col-4">
+                <div class="mb-3">
+                    <label class="form-label"> Sale Price</label>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                           placeholder="23000" name="sale_price">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label class="form-label">Shop Price</label>
+                    <input type="text" class="form-control" aria-label="Sizing example input" placeholder="24000"
+                           name="shop_price">
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="provider" class="form-label">Provider</label>
+                    <select class="form-select" aria-label="Default select example" name="provider">
+                        <option selected>Open this select menu</option>
+                        {% for provider in providers %}
+                            <option value="{{ provider.id_provider }}">{{ provider.name }}
+                            </option>
+                        {% endfor %}
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="tax" class="form-label">Tax</label>
+                    <select class="form-select" aria-label="Default select example" name="tax">
+                        <option selected>Open this select menu</option>
+                        {% for tax in taxs %}
+                            <option value="{{ tax.id_tax }}">{{ tax.tax_name }}
+                            </option>
+                        {% endfor %}
+
+                    </select>
+                </div>
+            </div>
+        </div>
+         <input hidden type="text" name="username" value="{{ user.username }}">
+
+        <div class="row">
+            <div class="col" id="element-end">
+                <button type="submit" class="btn" id="btn-form">Submit</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+

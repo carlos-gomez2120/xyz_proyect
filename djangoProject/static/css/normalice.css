@@ -1,0 +1,144 @@
+/*color de fondo en todas las paginas*/
+body {
+    background: #EDE7E3;
+}
+/*quitar el padding del container-fluid*/
+.container-fluid {
+    padding: 0%;
+}
+/*quitar padding col*/
+.col{
+    padding: 0%;
+}
+
+/*barra de navegacion global*/
+.navbar {
+    padding-left: 1%;
+    background: radial-gradient(100% 39430.61% at 0% 100%, #16697A 0.88%, #489FB5 52.16%);
+    font-family: Aladin;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .nav-link.disabled,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: rgb(255, 255, 255);
+}
+/*estilo de icono barra de navegacion*/
+.iconify {
+    width: 3rem;
+    height: 3rem;
+}
+/*alinear los iconos el lodo derecho de la barro en el centro*/
+.d-flex {
+    align-items: center;
+}
+
+/*estilo imagen del usuario*/
+.img-thumbnail {
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    margin-right: 1rem;
+}
+/*boton barra de navegacion*/
+.btn-primary {
+    width: 5rem;
+    height: 3rem;
+    margin-right: 1rem;
+    border-radius: 20px;
+}
+/*estilo de boton global*/
+.btn {
+    background-color: #82C0CC;
+    border-color: #82C0CC;
+    box-shadow: 0px 4px 75px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    text-align: center;
+    font-family: Aladin;
+}
+
+/*estilo global de tarjeta*/
+.card {
+    box-shadow: 0px 4px 49px 5px rgba(0, 0, 0, 0.47);
+    border-radius: 30px;
+    border-style: none;
+    width: 25rem;
+    text-align: center;
+    font-family: Aladin;
+
+}
+.card-img {
+    border-radius: 30px;
+    width: 25rem;
+    height: 20rem;
+}
+
+.card-title {
+    margin-top: 50%;
+    margin-bottom: 50%;
+    font-size: 3rem;
+}
+
+
+/*tarjeta cajero*/
+#img-cajero {
+    width: 40rem;
+    height: 30rem;
+    font-size: 5rem;
+}
+/*imagen cajero*/
+#img-caj{
+    width: 40rem;
+    height: 30rem;
+}
+/*estilos letras interfaz cajero*/
+#font{
+    font-size: 5rem;
+    font-family: Aladin;
+}
+
+/*estilo titulo*/
+#title{
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 2.5%;
+}
+
+/*estilo form-cotrol*/
+.form-control{
+    border-radius: 30px;
+}
+
+/*estilo form-select*/
+.form-select{
+    border-radius: 30px;
+}
+
+/*Pone el elemento al final*/
+#element-end{
+    text-align: center;
+    padding-top: 2.5%;
+}
+
+/*estilo titulos formulario crear producto*/
+.title-forms{
+    font-size: 2.5rem;
+    font-family: Aladin; 
+}
+
+/*estilo botones form*/
+#btn-form{
+    color:white;
+    width: 9rem;
+    height: 3rem;
+    font-size: 1.5rem;
+}
+
+/*estilo formilario proveedor*/
+.form-label{
+    font-size: 2rem;
+    font-family: Aladin; 
+}

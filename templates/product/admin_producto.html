@@ -1,0 +1,50 @@
+{% extends 'index-admin.html' %}
+
+{% block conten %}
+    <div class="row ">
+        <div class="col" id="title" style="padding-top: 3%">
+            <h3 id="font">Update Product</h3>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-11">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Provider</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Bar Code</th>
+                    <th scope="col">Administrar</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td>{{ product.fk_id_product.id_product }}</td>
+                        <td>{{ product.fk_id_product.product_name }}</td>
+                        <td>{{ product.fk_id_product.fk_id_product_type.product_type_name }}</td>
+                        <td>{{ product.fk_id_provider.name }}</td>
+                        <td>{{ product.stock }}</td>
+                        <td>{{ product.bar_code }}</td>
+                        <td>
+                            <a href="{% url 'make update product' %}?id_product_provider={{ product.id_product_provider }}">
+                                    <span class="iconify" data-icon="fluent:phone-update-checkmark-24-filled"
+                                          style="color: #176a7b;"></span>
+                            </a>
+                            <a href="{% url 'delete product' %}?id_product={{ product.fk_id_product.id_product }}/id_product_provider={{ product.id_product_provider }}">
+                                    <span class="iconify" data-icon="ant-design:delete-filled"
+                                          style="color: #ba313d;"></span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+

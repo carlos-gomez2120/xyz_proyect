@@ -1,0 +1,85 @@
+{% extends 'index-admin.html' %}
+
+{% block conten %}
+    <form method="post" action="/employee/create_employee/">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col" id="title">
+                <h3 id="font">Person Creation Form</h3>
+            </div>
+        </div>
+        <div class="row justify-content-evenly">
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" placeholder="Juan" id="name" name="name">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" placeholder="Gutiérrez" id="name" name="last_name">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-evenly">
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="inputAddress" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"
+                           name="person_address">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="Number" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                           placeholder="+57 300696969" name="phone">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-evenly">
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="dni" class="form-label">DNI</label>
+                    <input type="text" class="form-control" id="dni" placeholder="1007696969" name="dni">
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="provider" class="form-label">Person Type</label>
+                    <select class="form-select" aria-label="Default select example" name="person_type">
+                        <option selected>Open this select menu</option>
+                        {% for type in person_types %}
+                            <option value="{{ type.id_person_type }}">{{ type.person_type_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="inputAddress" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="jumagu"
+                           name="Username">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="Number" class="form-label">Password</label>
+                    <input type="password" class="form-control" aria-label="Sizing example input"
+                           name="password" placeholder="*********">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col" id="element-end">
+                <button type="submit" class="btn" id="btn-form">Submit</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

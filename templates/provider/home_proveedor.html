@@ -1,0 +1,43 @@
+{% extends 'index-admin.html' %}
+
+{% block conten %}
+<div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top: 5%; padding-left:9%;">
+    <a href="{% url 'card create provider' %}">
+        <div class="col">
+            <div class="card text-white">
+                <img src="https://images.unsplash.com/photo-1521790797524-b2497295b8a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"
+                     class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">Create Provider</h5>
+                </div>
+            </div>
+
+        </div>
+    </a>
+    <a href="{% url 'card update provider' %}">
+        <div class="col">
+            <div class="card text-white">
+                <img src="https://images.unsplash.com/photo-1620843002805-05a08cb72f57?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXBkYXRlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"
+                     class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">Update Provider</h5>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="{% url 'card list provider' %}">
+        <div class="col">
+            <div class="card text-white">
+                <img src="https://images.unsplash.com/photo-1516031190212-da133013de50?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                     class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">List Provider</h5>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+{% endblock %}
+
+
+

@@ -1,0 +1,45 @@
+{% extends 'index-admin.html' %}
+{% block conten %}
+    <div class="row">
+        <div class="col" id="title" style="padding-top: 3%">
+            <h3 id="font">Delete Employees</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-11">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Admin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for person in persons %}
+                    <tr>
+                        <td>{{ person.fk_id_person.id_person }}</td>
+                        <td>{{ person.fk_id_person.person_name}}</td>
+                        <td>{{ person.fk_id_person.person_last_name }}</td>
+                        <td>{{ person.fk_id_person.person_address }}</td>
+                        <td>{{ person.fk_id_person.person_phone }}</td>
+                        <td>{{ person.fk_id_person.person_dni }}</td>
+                        <td>{{ person.fk_id_person_type.person_type_name }}</td>
+                        <td>
+                            <a href="{% url 'delete employee' %}?id_person={{ person.fk_id_person.id_person }}">
+                                    <span class="iconify" data-icon="ant-design:delete-filled"
+                                          style="color: #ba313d;"></span>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

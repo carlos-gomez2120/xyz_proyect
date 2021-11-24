@@ -1,0 +1,99 @@
+{% extends 'index-admin.html' %}
+
+{% block conten %}
+<form action="/product/update_type/" method="post">
+    {% csrf_token %}
+    <div class="row ">
+        <div class="col" id="title">
+            <h3 id="font">Product Type Update Form</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="mb-3">
+                <label for="name" class="form-label">Product Type Name</label>
+                <input type="text" class="form-control" value="{{ product_provider.fk_id_product.fk_id_product_type.product_type_name }}" name="nameTypeProduct">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" id="element-end">
+            <button type="submit" class="btn" id="btn-form">Submit</button>
+        </div>
+    </div>
+</form>
+
+<form action="/product/update/" method="post" id="createProduct">
+    {% csrf_token %}
+    <div class="row ">
+        <div class="col" id="title">
+            <h3 id="font">Product Update Form</h3>
+        </div>
+    </div>
+
+    <div class="row justify-content-evenly">
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="Name" class="form-label">Name</label>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                       value="{{ product_provider.fk_id_product.product_name }}" name="nameProduct">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="mb-3">
+                <label class="form-label">Product Type</label>
+                <select class="form-select" aria-label="Default select example" name="productType">
+                    {% for productType in productsTypes %}
+                        {% if product_provider.fk_id_product.fk_id_product_type.id_product_type == productType.id_product_type %}
+                            <option selected value="{{ productType.id_product_type }}">{{ productType.product_type_name }}</option>
+                        {% else %}
+                            <option value="{{ productType.id_product_type }}">{{ productType.product_type_name }}</option>
+                        {% endif %}
+                    {% endfor %}
+
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-evenly">
+        <div class="col-4">
+            <div class="mb-3">
+                <label class="form-label">Bar Code</label>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                       value="{{ product_provider.bar_code }}" name="barCode">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="mb-3">
+                <label class="form-label">Stock</label>
+                <input type="text" class="form-control" aria-label="Sizing example input" value="{{ product_provider.stock }}"
+                       name="stock">
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="mb-3">
+                <label for="provider" class="form-label">Provider</label>
+                <select class="form-select" aria-label="Default select example" name="provider">
+                    {% for provider in providers %}
+                        {% if product_provider.fk_id_provider.id_provider == provider.id_provider %}
+                            <option selected value="{{ provider.id_provider }}">{{ provider.name }}</option>
+                        {% else %}
+                            <option value="{{ provider.id_provider }}">{{ provider.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col" id="element-end">
+            <button type="submit" class="btn" id="btn-form">Submit</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

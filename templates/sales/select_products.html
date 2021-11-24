@@ -1,0 +1,91 @@
+{% extends 'index-cajero.html' %}
+{% block conten %}
+    <div class="row">
+        <div class="col" id="title" style="padding-top: 3%">
+            <h3 id="font">Select Products</h3>
+        </div>
+    </div>
+    <form method="post" action="/sell/search_product/">
+        <div class="row justify-content-center">
+
+            {% csrf_token %}
+            <div class="col-3">
+                <div class="mb-3">
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                           placeholder="Enter bar code" name="bar_code">
+                </div>
+            </div>
+            <div class="col-2" style="text-align: center">
+                <button type="submit" class="btn" id="btn-form">Search</button>
+            </div>
+
+            <div class="col-3" style="text-align: center;">
+                <h4 id="font" style="font-size: 3rem">Selected Products</h4>
+            </div>
+            <div class="col-2" style="text-align: center">
+                <a class="btn btn-primary" id="btn-form" href="{% url 'generate ticket' %}?username={{ user.first_name }}" role="button">Create</a>
+            </div>
+        </div>
+    </form>
+    <div class="row justify-content-center">
+
+        <div class="col-5">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Price</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Bar Code</th>
+                    <th scope="col">Add</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td>{{ product.fk_id_price_product.sale_price }}</td>
+                        <td>{{ product.fk_id_price_product.fk_id_product_provider.fk_id_product.product_name }}</td>
+                        <td>{{ product.fk_id_price_product.fk_id_product_provider.stock }}</td>
+                        <td>{{ product.fk_id_price_product.fk_id_product_provider.bar_code }}</td>
+                        <td>
+                            <a href="{% url 'add product' %}?product={{ product.id_tax_price_product }}">
+                                <span class="iconify" data-icon="fluent:select-all-on-24-filled"
+                                      style="color: #176a7b;"></span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-5">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Price</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Bar Code</th>
+                    <th scope="col">Remove</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for selected in selected_products %}
+                    <tr>
+                        <td>{{ selected.fk_id_price_product.sale_price }}</td>
+                        <td>{{ selected.fk_id_price_product.fk_id_product_provider.fk_id_product.product_name }}</td>
+                        <td>{{ selected.fk_id_price_product.fk_id_product_provider.stock }}</td>
+                        <td>{{ selected.fk_id_price_product.fk_id_product_provider.bar_code }}</td>
+                        <td>
+                            <a href="{% url 'delete product selected' %}?product={{ selected.id_tax_price_product }}">
+                                <span class="iconify" data-icon="ant-design:delete-filled"
+                                          style="color: #ba313d;"></span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

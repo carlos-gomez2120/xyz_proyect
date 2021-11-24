@@ -1,0 +1,49 @@
+{% extends 'index-admin.html' %}
+
+{% block conten %}
+<div class="row ">
+    <div class="col" id="title" style="padding-top: 3%">
+        <h3 id="font">Provider Update</h3>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-11">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">URL</th>
+                <th scope="col">NIT</th>
+                <th scope="col">Administrar</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for provider in providers %}
+                <tr>
+                    <td>{{ provider.id_provider }}</td>
+                    <td>{{ provider.name }}</td>
+                    <td>{{ provider.address }}</td>
+                    <td>{{ provider.phone_number }}</td>
+                    <td>{{ provider.url }}</td>
+                    <td>{{ provider.nit }}</td>
+                    <td>
+                        <a href="{% url 'make update provider' %}?id_provider={{ provider.id_provider }}">
+                            <span class="iconify" data-icon="fluent:phone-update-checkmark-24-filled"
+                                  style="color: #176a7b;"></span>
+                        </a>
+                        <a href="{% url 'delete provider' %}?id_provider={{ provider.id_provider }}">
+                            <span class="iconify" data-icon="ant-design:delete-filled" style="color: #ba313d;"></span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+

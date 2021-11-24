@@ -1,0 +1,112 @@
+body{
+    background: radial-gradient(60.73% 103.66% at 50% 50%, #82C0CC 0%, #16697A 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-content{
+    display: flex;
+    background: linear-gradient(110.81deg, #FFA62B 0%, #FFCC33 100%);
+    box-shadow: 0px 4px 49px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 78px;
+    margin-top: 8%;
+    width: 65vw;
+    height: 65vh;
+}
+
+#blur{
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+    border-radius: 73px 0px 0px 78px;
+    width: 32.5vw;
+    height: 65vh;
+}
+
+#name{
+    font-family: Aladin;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 78px;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+#market{
+    text-align: center;
+}
+
+#login-div{
+    text-align: center;
+    width: 32.5vw;
+    height: 65vh;
+}
+
+#titulo-login{
+    font-family: Aladin;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 78px;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    margin-top: 20%;
+}
+
+.bot{
+    background-color: rgba(237, 231, 227, 0.85);
+    box-shadow: 0px 4px 75px rgba(0, 0, 0, 0.25);
+    border-radius: 45px;
+    width: 75%;
+    height: 10%;
+    font-family: Aladin;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+}
+
+#user{
+    background-image:  url('https://api.iconify.design/carbon/user-avatar-filled.svg?width=40&height=40');
+    background-repeat: no-repeat;
+    background-position-x: 3%;
+    background-position-y: 50%;
+    padding-left: 60px;
+}
+
+#password{
+    margin-top: 10%;
+    background-image:  url('https://api.iconify.design/ri/lock-password-fill.svg?width=40&height=40');
+    background-repeat: no-repeat;
+    background-position-x: 3%;
+    background-position-y: 50%;
+    padding-left: 60px;
+}
+#icono{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 60%;
+    height: 50%;
+}
+#enter{
+    background: #82C0CC;
+    box-shadow: 0px 4px 75px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    width: 25%;
+    height: 7%;
+    margin-top: 8%;
+    margin-left: 42%;
+    font-family: Aladin;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    align-items: flex-end;
+    text-align: center;
+    color: #000000;
+}

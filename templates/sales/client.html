@@ -1,0 +1,54 @@
+{% extends 'index-cajero.html' %}
+{% block conten %}
+    <div class="row ">
+        <div class="col" id="title">
+            <h3 id="font">Search Client</h3>
+        </div>
+    </div>
+    <form action="/sell/search_client/" method="post">
+        {% csrf_token %}
+        <div class="row justify-content-evenly">
+            <div class="col-6">
+                <div class="mb-3">
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                           placeholder="Enter de ID number" name="id_number">
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="btn-group">
+                    <button type="submit" class="btn" id="btn-form">Search</button>
+                    <a class="btn btn-primary" id="btn-form" href="{% url 'btn create client' %}" role="button">Create</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row justify-content-evenly">
+        <div class="col-10">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">First name</th>
+                    <th scope="col">Last name</th>
+                    <th scope="col">Select</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for person in persons %}
+                    <tr>
+                        <td>{{ person.person_dni }}</td>
+                        <th>{{ person.person_name }}</th>
+                        <td>{{ person.person_last_name }}</td>
+                        <td>
+                            <a href="{% url 'select products' %}?id_client={{ person.id_person}}">
+                                    <span class="iconify" data-icon="fluent:select-all-on-24-filled" style="color: #176a7b;"></span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
